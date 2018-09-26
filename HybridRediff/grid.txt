@@ -1,0 +1,15 @@
+
+
+Hub setup->
+java -jar C:\Users\Patrick_Kung\RiseSmart\Trainings\Selenium\pk_jars\selenium-server-standalone-3.11.0.jar -role hub
+
+Node 1 setup-> 
+java -Dwebdriver.gecko.driver="C:\drivers\geckodriver.exe" -Dwebdriver.chrome.driver="C:\drivers\chromedriver.exe" -Dwebdriver.edge.driver="C:\drivers\MicrosoftWebDriver.exe" -jar C:\Users\Patrick_Kung\RiseSmart\Trainings\Selenium\pk_jars\selenium-server-standalone-3.11.0.jar -role node -nodeConfig C:\grid\node1.json
+
+Node 2 setup->
+java -Dwebdriver.gecko.driver="C:\drivers\geckodriver.exe" -Dwebdriver.chrome.driver="C:\drivers\chromedriver.exe" -Dwebdriver.edge.driver="C:\drivers\MicrosoftWebDriver.exe" -jar C:\Users\Patrick_Kung\RiseSmart\Trainings\Selenium\pk_jars\selenium-server-standalone-3.11.0.jar -role node -nodeConfig C:\grid\node2.json
+
+
+
+
+
