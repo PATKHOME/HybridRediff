@@ -190,7 +190,7 @@ public class GenericKeywords {
 	public EdgeOptions loadEdgeOptions(){
 	 	System.setProperty("webdriver.edge.driver", "C:\\drivers\\MicrosoftWebDriver.exe");
 	 	//System.setProperty("webdriver.edge.driver", prop.getProperty("edgedriver_exe"));
-	    System.setProperty(EdgeDriverService.EDGE_DRIVER_LOG_PROPERTY,"null");  // comment by PK
+	    //System.setProperty(EdgeDriverService.EDGE_DRIVER_LOG_PROPERTY,"null");  // comment by PK
 			
 			EdgeOptions options = new EdgeOptions();
 			options.setPageLoadStrategy("EAGER");
