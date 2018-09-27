@@ -47,8 +47,11 @@ public class Mail {
 		mailSession = Session.getDefaultInstance(emailProperties, null);
 		emailMessage = new MimeMessage(mailSession);
 
+		emailMessage.setFrom(new InternetAddress(toEmails[0])); //added by PK
+		
 		for (int i = 0; i < toEmails.length; i++) {
 			emailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(toEmails[i]));
+			System.out.println("Email Recipient: "+toEmails[i] );
 		}
 
 		emailMessage.setSubject(emailSubject);
@@ -63,13 +66,18 @@ public class Mail {
 
 		 
 		
-
+     try {
 		Transport transport = mailSession.getTransport("smtp");
 
 		transport.connect(emailHost, fromUser, fromUserEmailPassword);
 		transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
 		transport.close();
 		System.out.println("Email sent successfully.");
+
+	    } catch (MessagingException e) {
+        throw new RuntimeException(e);
+      }
+
 	}
 
 }
