@@ -122,11 +122,11 @@ public class GenericKeywords {
 		}else {// run on normal browser
 			if(browser.equals("Mozilla")){
 				// options
-				//System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null");
+				System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null");
 				// invoke profile
-				//System.setProperty("webdriver.gecko.driver", "D:\\Common\\drivers\\geckodriver.exe");
-				//driver = new FirefoxDriver();
-				driver = new FirefoxDriver(loadFirefoxOptions());
+				System.setProperty("webdriver.gecko.driver", "C:\\drivers\\geckodriver.exe");
+				driver = new FirefoxDriver();
+				//driver = new FirefoxDriver(loadFirefoxOptions());
 			}else if(browser.equals("Chrome")){
 				// init options
 				//driver = new ChromeDriver();
@@ -144,14 +144,14 @@ public class GenericKeywords {
 		driver.manage().window().maximize();
 	}
 
-	public FirefoxOptions loadFirefoxOptions(){
+/*	public FirefoxOptions loadFirefoxOptions(){
 		System.setProperty("webdriver.gecko.driver", "C:\\drivers\\geckodriver.exe");
 		//System.setProperty("webdriver.gecko.driver", prop.getProperty("firefoxdriver_exe"));
 		System.setProperty(FirefoxDriver.SystemProperty.BROWSER_LOGFILE, "null");
 		// binary
 		FirefoxOptions options = new FirefoxOptions();
 		//options.setBinary("PATH TO EXE");
-		options.setPageLoadStrategy(PageLoadStrategy.EAGER);
+		//options.setPageLoadStrategy(PageLoadStrategy.EAGER);  // comment by PK
 				
 		// Profiling--firefox.exe -p profilemanager
 		// tell selenium to launch mod -11
@@ -166,7 +166,7 @@ public class GenericKeywords {
 		options.setProfile(prof);
 		return options;
 	}
-	
+*/	
 	public ChromeOptions loadChromeOptions(){
 		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
 		//System.setProperty("webdriver.chrome.driver", prop.getProperty("chromedriver_exe"));
@@ -190,10 +190,10 @@ public class GenericKeywords {
 	public EdgeOptions loadEdgeOptions(){
 	 	System.setProperty("webdriver.edge.driver", "C:\\drivers\\MicrosoftWebDriver.exe");
 	 	//System.setProperty("webdriver.edge.driver", prop.getProperty("edgedriver_exe"));
-	    System.setProperty(EdgeDriverService.EDGE_DRIVER_LOG_PROPERTY,"null");
+	    System.setProperty(EdgeDriverService.EDGE_DRIVER_LOG_PROPERTY,"null");  // comment by PK
 			
 			EdgeOptions options = new EdgeOptions();
-			options.setPageLoadStrategy("eager");
+			options.setPageLoadStrategy("EAGER");
 			//options.setPageLoadStrategy(PageLoadStrategy.EAGER);
 			return options;
 	
@@ -351,7 +351,7 @@ public class GenericKeywords {
 		if(driver!=null)
 			driver.quit();
 	}
-	/*********************Utitlity Functions************************/
+	/*********************Utility Functions************************/
 	// central function to extract Objects
 	public WebElement getObject(String objectKey){
 		WebElement e=null;
@@ -368,7 +368,7 @@ public class GenericKeywords {
 		WebDriverWait wait = new WebDriverWait(driver,20);
 		// visibility of Object
 		wait.until(ExpectedConditions.visibilityOf(e));
-		// state of the object-  clickable
+		// state of the object- click able
 		wait.until(ExpectedConditions.elementToBeClickable(e));
 		
 		}catch(Exception ex){

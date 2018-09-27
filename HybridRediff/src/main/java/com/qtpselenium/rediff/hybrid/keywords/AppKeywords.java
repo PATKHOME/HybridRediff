@@ -18,6 +18,7 @@ public class AppKeywords extends GenericKeywords{
 
 	public void login(){
 		test.log(Status.INFO, "Logging in"); 
+		test.log(Status.INFO, "Click Money Link" +getObject("money_xpath")); 
 		getObject("money_xpath").click();
 		getObject("signin_xpath").click();
 		String username="";
